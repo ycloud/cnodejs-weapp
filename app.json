@@ -3,6 +3,37 @@
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#46c01b",
+    "backgroundColor": "#fcfcfc",
+    "list": [
+      {
+        "iconPath": "static/icon/home.png",
+        "selectedIconPath": "static/icon/home-g.png",
+        "pagePath": "pages/index/index",
+        "text": "话题"
+      },
+      {
+        "iconPath": "static/icon/favorite.png",
+        "selectedIconPath": "static/icon/favorite-g.png",
+        "pagePath": "pages/collect/index",
+        "text": "收藏"
+      },
+      {
+        "iconPath": "static/icon/message.png",
+        "selectedIconPath": "static/icon/message-g.png",
+        "pagePath": "pages/message/index",
+        "text": "消息"
+      },
+      {
+        "iconPath": "static/icon/person.png",
+        "selectedIconPath": "static/icon/person-g.png",
+        "pagePath": "pages/m/index",
+        "text": "我"
+      }
+    ]
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
