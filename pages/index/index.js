@@ -28,20 +28,14 @@ Page({
     topics: []
   },
   tapTab(event) {
-
-    let self = this
     this.setData({
       tab: event.target.id,
       hasMore: true,
+      loading: false,
       page: 1,
       topics: []
     })
-    wx.switchTab({
-      url: '/pages/index/index',
-      success() {
-        self.getTopics()
-      }
-    })
+    this.getTopics()
   },
   getTopics(cb) {
     let { hasMore, topics, loading, page, tab } = this.data
