@@ -1,10 +1,21 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="flex bottom-line tab">
+    <view class="tab-item {{tab === item.id ? 'tab-item-active':''}}" hover-class="tab-item-hover" wx:for="{{tabs}}" id="{{item.id}}" wx:key="{{item.id}}" bindtap="tapTab">{{item.label}}</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <scroll-view scroll-y="true" class="home-scroll" bindscrolltolower="getTopics">
+    <view class="flex bottom-line topic-item" wx:key="{{item.id}}" wx:for="{{topics}}">
+      <view class="avatar">
+        <image class="avatar" src="{{item.author.avatar_url}}" />
+      </view>
+      <view class="title-wrap">
+        <view class="title">{{item.title}}</view>
+        <view class="muted">{{item.reply_count}}/{{item.visit_count}}</view>
+      </view>
+      <view class="muted timeago">{{item.last_reply}}</view>
+    </view>
+    <view hidden="{{!hasMore}}" class="weui-loading-wrap">
+      <view class="weui-loading"></view>
+    </view>
+  </scroll-view>
 </view>
