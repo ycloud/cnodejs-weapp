@@ -1,26 +1,86 @@
 //index.js
 //获取应用实例
-var app = getApp()
+import timeago from '../../utils/timeago.min.js'
+
+const timeagoInstance = timeago(null, 'zh_CN')
+const app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    hasMore: true,
+    tab: 'all',
+    tabs: [{
+      id: 'all',
+      label: '全部'
+    }, {
+      id: 'good',
+      label: '精华'
+    }, {
+      id: 'share',
+      label: '分享'
+    }, {
+      id: 'ask',
+      label: '问答'
+    }, {
+      id: 'job',
+      label: '招聘'
+    }],
+    page: 1,
+    topics: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  tapTab(event) {
+
+    let self = this
+    this.setData({
+      tab: event.target.id,
+      hasMore: true,
+      page: 1,
+      topics: []
+    })
+    wx.switchTab({
+      url: '/pages/index/index',
+      success() {
+        self.getTopics()
+      }
     })
   },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+  getTopics(cb) {
+    let { hasMore, topics, loading, page, tab } = this.data
+    if (!hasMore || loading) return
+    let data = { page }
+    if (tab !== 'all') data.tab = tab
+    this.setData({
+      loading: true
     })
+    let self = this
+    wx.request({
+      url: `${app.globalData.api}/topics`,
+      data,
+      success(res) {
+        if (self.data.tab !== tab) return
+        let { data } = res
+        self.setData({
+          loading: false
+        })
+        data.forEach(item => {
+          item.last_reply = timeagoInstance.format(item.last_reply_at)
+        })
+        if (data.length < 40 || page === 9) {
+          self.setData({
+            hasMore: false
+          })
+        } else {
+          page++
+          self.setData({
+            page
+          })
+        }
+        self.setData({
+          topics: topics.concat(data)
+        })
+      }
+    })
+  },
+  onLoad() {
+    this.getTopics()
   }
 })
