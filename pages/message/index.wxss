@@ -1,0 +1,31 @@
+@import "../user/index.wxss";
+
+page {
+  min-height: 100%;
+}
+
+.topics {
+  height: 100%;
+}
+
+.topic-item {
+  transition: margin 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+}
+
+.topic-item.active {
+  margin: 16px 0;
+}
+
+.message-title, .message-content {
+  line-height: 20px;
+  color: #666;
+}
+
+.name {
+  display: inline;
+  color: #353535;
+}
+
+.message-content {
+  margin-top: 10px;
+}

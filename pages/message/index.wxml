@@ -1,0 +1,20 @@
+<view class="topics" hidden="{{!messages}}" bindtap="active">
+  <view class="flex topic-item {{item.id !== activeId ? '' : 'active'}}" wx:key="{{item.id}}" id="{{item.id}}" wx:for="{{messages}}" catchtap="active">
+    <view class="topic-title">
+      <view class="message-title">
+        <view class="name">{{item.author.loginname}}</view> 在话题
+        <view class="name">{{item.topic.title}}</view> 中@了你</view>
+      <view hidden="{{item.id !== activeId}}" class="message-content">
+        {{item.reply.content}}
+      </view>
+    </view>
+  </view>
+  <view class="flex topic-item" hidden="{{messages.length}}">
+    <view class="topic-title">
+      <view class="title">无消息</view>
+    </view>
+  </view>
+</view>
+<view hidden="{{messages}}" class="weui-loading-wrap">
+  <view class="weui-loading"></view>
+</view>
