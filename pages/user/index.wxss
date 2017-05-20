@@ -1,0 +1,53 @@
+/* pages/user/index.wxss */
+
+page {
+  background: #ebebeb;
+}
+
+.user {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.header {
+  margin-top: 20px;
+  background: #fff;
+  align-items: center;
+}
+
+.loginname {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.topics-title {
+  padding: 30px 0 10px 10px;
+}
+
+.topic-item {
+  background: #fff;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 1px;
+}
+
+.topic-title {
+  padding: 5px 10px 5px 0;
+  flex: 100%;
+  overflow: hidden;
+}
+
+.title {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #666;
+}
+
+.mini-avatar {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin-right: 10px;
+}

@@ -30,14 +30,20 @@ page {
 }
 
 .topic-item {
+  align-items: center;
+}
+
+.flex-title {
+  flex: 100%;
+  overflow: hidden;
+  height: 48px;
   padding: 10px;
   align-items: center;
+  margin-left: -10px;
 }
 
 .title-wrap {
   flex: 100%;
-  margin-left: 10px;
-  align-items: center;
   overflow: hidden;
 }
 
@@ -49,6 +55,6 @@ page {
 }
 
 .timeago {
-  width: 100px;
+  width: 72px;
   text-align: right;
 }

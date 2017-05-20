@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 import timeago from '../../utils/timeago.min.js'
-
 const timeagoInstance = timeago(null, 'zh_CN')
 const app = getApp()
 Page({

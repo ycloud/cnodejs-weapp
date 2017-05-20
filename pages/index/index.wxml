@@ -5,14 +5,16 @@
   </view>
   <scroll-view scroll-y="true" class="home-scroll" bindscrolltolower="getTopics">
     <view class="flex bottom-line topic-item" wx:key="{{item.id}}" wx:for="{{topics}}">
-      <view class="avatar">
+      <navigator url="/pages/user/index?loginname={{item.author.loginname}}" hover-class="navigator-hover">
         <image class="avatar" src="{{item.author.avatar_url}}" />
-      </view>
-      <view class="title-wrap">
-        <view class="title">{{item.title}}</view>
-        <view class="muted">{{item.reply_count}}/{{item.visit_count}}</view>
-      </view>
-      <view class="muted timeago">{{item.last_reply}}</view>
+      </navigator>
+      <navigator class="flex flex-title" url="/pages/show/index?id={{item.id}}">
+        <view class="title-wrap">
+          <view class="title">{{item.title}}</view>
+          <view class="muted">{{item.reply_count}}/{{item.visit_count}}</view>
+        </view>
+        <view class="muted timeago">{{item.last_reply}}</view>
+      </navigator>
     </view>
     <view hidden="{{!hasMore}}" class="weui-loading-wrap">
       <view class="weui-loading"></view>
