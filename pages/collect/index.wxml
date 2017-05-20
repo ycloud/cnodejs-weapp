@@ -1,0 +1,18 @@
+<view class="topics" hidden="{{!collects}}">
+  <view class="flex topic-item" wx:key="{{item.id}}" wx:for="{{collects}}">
+    <view>
+      <image class="mini-avatar" src="{{item.author.avatar_url}}" />
+    </view>
+    <view class="topic-title">
+      <view class="title">{{item.title}}</view>
+    </view>
+  </view>
+  <view class="flex topic-item" hidden="{{collects.length}}">
+    <view class="topic-title">
+      <view class="title">无收藏</view>
+    </view>
+  </view>
+</view>
+<view hidden="{{collects}}" class="weui-loading-wrap">
+  <view class="weui-loading"></view>
+</view>

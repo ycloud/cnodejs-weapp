@@ -1,1 +1,4 @@
 @import "../user/index.wxss";
+page{
+  min-height: 100%;
+}
