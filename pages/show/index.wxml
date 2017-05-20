@@ -1,0 +1,28 @@
+<import src="../../wemark/wemark.wxml" />
+<view class="topic" hidden="{{!topic}}">
+  <view class="title">{{topic.title}}</view>
+  <view class="muted">{{topic.author.loginname}} {{topic.create_at}}发表 | {{topic.visit_count}}次浏览</view>
+  <template is="wemark" data="{{...content}}"></template>
+</view>
+<view class="replys" hidden="{{!topic}}">
+  <view class="replys-title bottom-line">{{topic.reply_count}}回复</view>
+  <view class="flex bottom-line reply-item" wx:key="{{item.id}}" wx:for="{{topic.replies}}">
+    <view>
+      <image class="avatar" src="{{item.author.avatar_url}}" />
+    </view>
+    <view class="reply-content-wrap">
+      <view class="flex loginname-wrap">
+        <view>{{item.author.loginname}}</view>
+        <view class="like">{{item.ups.length}}</view>
+      </view>
+      <view class="reply-content">{{item.content}}</view>
+      <view class="muted reply-time">{{item.create_at}}</view>
+    </view>
+  </view>
+</view>
+<view hidden="{{topic}}" class="weui-loading-wrap">
+  <view class="weui-loading"></view>
+</view>
+<view hidden="{{!error}}" class="message">
+  <icon type="warn" class="message-icon" />话题不存在！
+</view>

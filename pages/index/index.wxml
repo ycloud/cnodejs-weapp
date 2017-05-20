@@ -1,23 +1,21 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="flex bottom-line tab">
-    <view class="tab-item {{tab === item.id ? 'tab-item-active':''}}" hover-class="tab-item-hover" wx:for="{{tabs}}" id="{{item.id}}" wx:key="{{item.id}}" bindtap="tapTab">{{item.label}}</view>
-  </view>
-  <scroll-view scroll-y="true" class="home-scroll" bindscrolltolower="getTopics">
-    <view class="flex bottom-line topic-item" wx:key="{{item.id}}" wx:for="{{topics}}">
-      <navigator url="/pages/user/index?loginname={{item.author.loginname}}" hover-class="navigator-hover">
-        <image class="avatar" src="{{item.author.avatar_url}}" />
-      </navigator>
-      <navigator class="flex flex-title" url="/pages/show/index?id={{item.id}}">
-        <view class="title-wrap">
-          <view class="title">{{item.title}}</view>
-          <view class="muted">{{item.reply_count}}/{{item.visit_count}}</view>
-        </view>
-        <view class="muted timeago">{{item.last_reply}}</view>
-      </navigator>
-    </view>
-    <view hidden="{{!hasMore}}" class="weui-loading-wrap">
-      <view class="weui-loading"></view>
-    </view>
-  </scroll-view>
+<view class="flex bottom-line tab">
+  <view class="tab-item {{tab === item.id ? 'tab-item-active':''}}" hover-class="tab-item-hover" wx:for="{{tabs}}" id="{{item.id}}" wx:key="{{item.id}}" bindtap="tapTab">{{item.label}}</view>
 </view>
+<scroll-view scroll-y="true" class="home-scroll" bindscrolltolower="getTopics">
+  <view class="flex bottom-line topic-item" wx:key="{{item.id}}" wx:for="{{topics}}">
+    <navigator url="/pages/user/index?loginname={{item.author.loginname}}" hover-class="navigator-hover">
+      <image class="avatar" src="{{item.author.avatar_url}}" />
+    </navigator>
+    <navigator class="flex flex-title" url="/pages/show/index?id={{item.id}}">
+      <view class="title-wrap">
+        <view class="title">{{item.title}}</view>
+        <view class="muted">{{item.reply_count}}/{{item.visit_count}}</view>
+      </view>
+      <view class="muted timeago">{{item.last_reply}}</view>
+    </navigator>
+  </view>
+  <view hidden="{{!hasMore}}" class="weui-loading-wrap">
+    <view class="weui-loading"></view>
+  </view>
+</scroll-view>

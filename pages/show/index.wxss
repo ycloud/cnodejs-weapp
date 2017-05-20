@@ -1,0 +1,62 @@
+/* pages/show/index.wxss */
+@import "../../wemark/wemark.wxss";
+
+.topic {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px 20px;
+}
+
+.title {
+  color: #000;
+  font-size: 20px;
+}
+
+.wemark_wrapper {
+  font-size: 14px;
+  line-height: 1.618;
+  color: #3a3a3a;
+}
+
+.wemark_block_code {
+  white-space: pre-wrap;
+}
+
+.replys {
+  width: 100%;
+  margin-top: 10px;
+  background: #ebebeb;
+}
+
+.replys-title {
+  padding: 30px 10px 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.reply-content-wrap {
+  flex: 1;
+  padding: 8px 10px 10px 0;
+}
+
+.loginname-wrap {
+  color: #666;
+  justify-content: space-between;
+}
+
+.like {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAANlBMVEVHcEyZmZmYmJiZmZmampqYmJj///+ZmZmZmZmZmZmZmZmZmZmZmZmZmZmampqZmZmZmZmZmZkMHNk2AAAAEXRSTlMASja6JBQB7zKt6NmOgGrNsr+kyQkAAACgSURBVHhe7dTBDoIwEEXRqUw7tCD6/v9nTWBpi96FMTG+FYt7kkJI7aubp8z60I2IS0iaCuulGfZK75//mMM+Cus1wV5X2CvBXhn2DfaqL3vfe/DOVeNF9WcQOlvkPdIx7c/nqxQEBfoB0D7+WRMES4FgMwYiQ7AaBA7B3SBIECwFgs0YiAzBal0QQ+B9UMf/aR949PvmA2C5Rv8KI/vvAUDWRunq/qo3AAAAAElFTkSuQmCC') no-repeat 0 1px;
+  background-size: 16px 16px;
+  padding-left: 20px;
+}
+
+.reply-content {
+  margin: 5px 0;
+}
+
+.reply-time {
+  font-size: 12px;
+}

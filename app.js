@@ -1,4 +1,7 @@
 //app.js
+import timeago from './utils/timeago.min.js'
+const timeagoInstance = timeago(null, 'zh_CN')
+
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -6,6 +9,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
+  timeagoInstance,
   getUserInfo: function (cb) {
     var that = this
     if (this.globalData.userInfo) {

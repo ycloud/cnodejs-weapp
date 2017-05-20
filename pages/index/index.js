@@ -1,7 +1,5 @@
 //index.js
 //获取应用实例
-import timeago from '../../utils/timeago.min.js'
-const timeagoInstance = timeago(null, 'zh_CN')
 const app = getApp()
 Page({
   data: {
@@ -55,7 +53,7 @@ Page({
           loading: false
         })
         data.forEach(item => {
-          item.last_reply = timeagoInstance.format(item.last_reply_at)
+          item.last_reply = app.timeagoInstance.format(item.last_reply_at)
         })
         if (data.length < 40 || page === 9) {
           self.setData({

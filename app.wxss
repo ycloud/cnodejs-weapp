@@ -1,5 +1,16 @@
 /**app.wxss**/
 
+page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #353535;
+}
+
 icon {
   vertical-align: middle;
 }
@@ -10,17 +21,6 @@ icon {
 
 .message-icon {
   margin-right: 5px;
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  font-size: 14px;
-  color: #353535;
 }
 
 .flex {
