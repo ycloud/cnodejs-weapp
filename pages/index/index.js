@@ -25,14 +25,27 @@ Page({
     topics: []
   },
   tapTab(event) {
+    let tab = event.target.id
+    let title;
     this.setData({
-      tab: event.target.id,
+      tab,
       hasMore: true,
       loading: false,
       page: 1,
       topics: []
     })
     this.getTopics()
+    switch (tab) {
+      case 'all':
+        title = 'cnodejs wexin app share.la'
+        break;
+      case 'good':
+        title = '精华话题'
+        break;
+      default:
+        title = this.data.tabs.find(item => item.id === tab).label + '版块'
+    }
+    wx.setNavigationBarTitle({ title })
   },
   getTopics(cb) {
     let { hasMore, topics, loading, page, tab } = this.data
