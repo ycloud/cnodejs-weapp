@@ -4,14 +4,10 @@ Page({
   onLoad(options) {
     let self = this
     if (options.loginname) {
-      wx.request({
-        url: `${app.globalData.api}/users/${options.loginname}`,
-        success(res) {
-          res.data.create_at = app.timeagoInstance.format(res.data.create_at)
-          self.setData({
-            user: res.data
-          })
-        }
+      app.getUser(options.loginname, user => {
+        self.setData({
+          user
+        })
       })
     } else {
       this.setData({

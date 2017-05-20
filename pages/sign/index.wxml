@@ -1,0 +1,10 @@
+<view hidden="{{storage}}" class="flex full-box">
+  <view class="sign">
+    <input placeholder="Access Token" auto-focus bindinput="updateToken" bindconfirm="sign" class="bottom-line" />
+    <button type="primary" bindtap="sign" class="sign-btn">登录</button>
+    <button type="default" bindtap="qr">扫码登录</button>
+  </view>
+</view>
+<view hidden="{{!storage}}" class="weui-loading-wrap">
+  <view class="weui-loading"></view>
+</view>

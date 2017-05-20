@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/show/index",
     "pages/user/index",
+    "pages/sign/index",
     "pages/collect/index",
     "pages/message/index",
     "pages/m/index"

@@ -1,0 +1,2 @@
+<import src="../user/user.wxml" />
+<template is="user" data="{{user,error,sign}}" />

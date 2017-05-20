@@ -1,5 +1,5 @@
 <import src="../../wemark/wemark.wxml" />
-<view class="topic" hidden="{{!topic}}">
+<view class="full-box" hidden="{{!topic}}">
   <view class="title">{{topic.title}}</view>
   <view class="muted">{{topic.author.loginname}} {{topic.create_at}}发表 | {{topic.visit_count}}次浏览</view>
   <template is="wemark" data="{{...content}}"></template>

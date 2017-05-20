@@ -51,3 +51,7 @@ page {
   display: block;
   margin-right: 10px;
 }
+
+.sign-btn {
+  padding: 10px;
+}
