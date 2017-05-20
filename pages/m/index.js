@@ -7,7 +7,11 @@ Page({
     wx.removeStorage({
       key: 'token'
     })
-    wx.reLaunch({
+    this.setData({
+      sign: false,
+      user: null
+    })
+    wx.switchTab({
       url: '/pages/index/index'
     })
   },

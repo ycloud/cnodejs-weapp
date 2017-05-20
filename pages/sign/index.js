@@ -55,7 +55,7 @@ Page({
         })
         app.globalData.account = res.data
         app.globalData.token = accesstoken
-        wx.reLaunch({
+        wx.switchTab({
           url: '/' + app.globalData.redirect
         })
       },

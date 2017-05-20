@@ -41,7 +41,8 @@ App({
   },
   auth() {
     if (this.globalData.token) return true
-    this.globalData.redirect = getCurrentPages()[0].__route__
+    let routes = getCurrentPages()
+    this.globalData.redirect = routes[routes.length - 1].__route__
     wx.redirectTo({
       url: `/pages/sign/index`
     })
