@@ -24,25 +24,20 @@ Page({
   sign() {
     let self = this
     let accesstoken = this.data.token
-    let {storage} = this.data
-    if (!storage) {
-      if (accesstoken === '') return wx.showModal({
-        showCancel: false,
-        title: 'Access Token 不能为空！'
-      })
-      if (!/^[a-z\d\\-]{36}$/i.test(accesstoken)) return wx.showModal({
-        showCancel: false,
-        title: 'Access Token 格式错误！'
-      })
-    }
+    if (accesstoken === '') return wx.showModal({
+      showCancel: false,
+      title: 'Access Token 不能为空！'
+    })
+    if (!/^[a-z\d\\-]{36}$/i.test(accesstoken)) return wx.showModal({
+      showCancel: false,
+      title: 'Access Token 格式错误！'
+    })
     wx.showLoading({
       title: '正在登录',
       mask: true
     })
-
-
     wx.request({
-      url: 'https://cnodejs.org/api/v1/accesstoken', //仅为示例，并非真实的接口地址
+      url: 'https://cnodejs.org/api/v1/accesstoken',
       method: 'POST',
       data: {
         accesstoken
@@ -54,45 +49,18 @@ Page({
             title: '登录失败，请检查Access Token！'
           })
         }
-
-        if (!storage) {
-          wx.setStorage({
-            key: 'token',
-            data: accesstoken
-          })
-        }
+        wx.setStorage({
+          key: 'token',
+          data: accesstoken
+        })
         app.globalData.account = res.data
         app.globalData.token = accesstoken
         wx.reLaunch({
           url: '/' + app.globalData.redirect
         })
       },
-      fail() {
-        if (storage) {
-          storage = false
-          wx.removeStorage({
-            key: 'token'
-          })
-          self.setData({
-            storage
-          })
-        }
-      },
       complete() {
         wx.hideLoading()
-      }
-    })
-  },
-  onLoad() {
-    let self = this
-    wx.getStorage({
-      key: 'token',
-      success(res) {
-        self.setData({
-          storage: true,
-          token: res.data
-        })
-        self.sign()
       }
     })
   }

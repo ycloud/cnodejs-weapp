@@ -8,7 +8,7 @@ Page({
       activeId: event.currentTarget.id
     })
   },
-  onLoad() {
+  onShow() {
     let self = this
     if (app.auth()) {
       if (!this.data.messages) {

@@ -1,6 +1,6 @@
 const app = getApp()
 Page({
-  onLoad() {
+  onShow() {
     let self = this
     if (app.auth()) {
       if (!this.data.collects) {

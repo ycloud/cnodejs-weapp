@@ -8,10 +8,10 @@ Page({
       key: 'token'
     })
     wx.reLaunch({
-      url: '/pages/m/index'
+      url: '/pages/index/index'
     })
   },
-  onLoad() {
+  onShow() {
     let self = this
     if (app.auth()) {
       app.getUser(app.globalData.account.loginname, user => {
