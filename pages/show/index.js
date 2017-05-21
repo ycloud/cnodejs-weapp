@@ -23,9 +23,6 @@ Page({
           self.setData({
             topic: res.data
           })
-          wx.setNavigationBarTitle({
-            title: res.data.title
-          })
         }
       })
     } else {

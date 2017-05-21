@@ -8,9 +8,6 @@ Page({
         self.setData({
           user
         })
-        wx.setNavigationBarTitle({
-          title: `${user.loginname}的主页`
-        })
       })
     } else {
       this.setData({
