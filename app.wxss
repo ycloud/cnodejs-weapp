@@ -9,6 +9,7 @@ page {
   box-sizing: border-box;
   font-size: 14px;
   color: #353535;
+  -webkit-overflow-scrolling: touch;
 }
 
 icon {
