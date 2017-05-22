@@ -66,6 +66,7 @@ Page({
           loading: false
         })
         data.forEach(item => {
+          app.fixGAvatar(item.author)
           item.last_reply = app.timeagoInstance.format(item.last_reply_at)
         })
         if (data.length < 40 || page === 9) {

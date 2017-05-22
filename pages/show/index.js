@@ -15,11 +15,11 @@ Page({
             name: 'content'
           })
           res.data.create_at = app.timeagoInstance.format(res.data.create_at)
-          res.data.replies.forEach(replay => {
-            replay.content = replay.content.replace(/\[(.+?)\]/ig, '$1').replace(/[\(<].+?[\)>]/g, '')
-            replay.create_at = app.timeagoInstance.format(replay.create_at)
+          res.data.replies.forEach(reply => {
+            app.fixGAvatar(reply.author)
+            app.marked(reply)
+            reply.create_at = app.timeagoInstance.format(reply.create_at)
           })
-
           self.setData({
             topic: res.data
           })

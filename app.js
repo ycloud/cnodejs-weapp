@@ -14,6 +14,15 @@ App({
       }
     })
   },
+  fixGAvatar(user) {
+    let {avatar_url} = user
+    if (avatar_url.startsWith('//gravatar.com/')) {
+      user.avatar_url = `https:${avatar_url}`
+    }
+  },
+  marked(reply) {
+    reply.content = reply.content.replace(/\[(.+?)\]/ig, '$1').replace(/[\(<].+?[\)>]/g, '')
+  },
   sign() {
     let self = this
     let accesstoken = this.globalData.token

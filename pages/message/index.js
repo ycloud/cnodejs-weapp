@@ -20,7 +20,7 @@ Page({
           success(res) {
             let messages = res.data.hasnot_read_messages.concat(res.data.has_read_messages)
             messages.forEach(message => {
-              message.reply.content = message.reply.content.replace(/\[(.+?)\]/ig, '$1').replace(/[\(<].+?[\)>]/g, '')
+              app.marked(message.reply)
             })
             self.setData({
               messages

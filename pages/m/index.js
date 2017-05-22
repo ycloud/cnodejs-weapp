@@ -19,6 +19,11 @@ Page({
     let self = this
     if (app.auth()) {
       app.getUser(app.globalData.account.loginname, user => {
+        app.fixGAvatar(user)
+        user.recent_replies.forEach(item => {
+          app.fixGAvatar(item.author)
+          return item
+        })
         self.setData({
           sign: true,
           user

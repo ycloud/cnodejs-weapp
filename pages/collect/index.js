@@ -7,7 +7,10 @@ Page({
         wx.request({
           url: `${app.globalData.api}/collects/${app.globalData.account.loginname}`,
           success(res) {
-            res.data.create_at = app.timeagoInstance.format(res.data.create_at)
+            res.data.forEach(item => {
+              app.fixGAvatar(item.author)
+              return item
+            })
             self.setData({
               collects: res.data
             })
