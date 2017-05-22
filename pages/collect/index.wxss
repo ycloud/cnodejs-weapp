@@ -2,3 +2,6 @@
 page{
   min-height: 100%;
 }
+.topics{
+  width: 100%;
+}
